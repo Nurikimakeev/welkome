@@ -144,42 +144,94 @@
     font-weight: 600;
   }
 
-  table {
+  /* 📸 Фото-блок */
+  .photo-section {
+    background: url(https://img.freepik.com/premium-vector/wedding-ring-flat-cartoon-isolated-white-background-vector-illustration_833641-1751.jpg) center/cover no-repeat;
+    border-radius: 20px;
+    padding: 60px 30px;
+    color: white;
+    position: relative;
+    margin: 40px auto;
+    max-width: 800px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+  .photo-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45); /* затемнение */
+    border-radius: 20px;
+  }
+  .photo-section .overlay {
+    position: relative;
+    z-index: 2;
+  }
+  .photo-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #ffd700;
+  }
+  .photo-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  /* Календарь */
+  #calendar {
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+    background: #fff8dc;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    padding: 20px;
+  }
+  #calendar h2 {
+    margin: 0 0 10px 0;
+    font-family: 'Great Vibes', cursive;
+    color: #a9741f;
+    font-size: 2.5rem;
+  }
+  #calendar table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 10px 12px;
-    margin-top: 20px;
+    border-collapse: collapse;
+    text-align: center;
     user-select: none;
   }
-
-  th, td {
-    text-align: center;
-    font-size: 1.1em;
-    padding: 12px 0;
-    border-radius: 50%;
+  #calendar th, #calendar td {
+    width: 14.28%;
+    padding: 10px 0;
     font-weight: 600;
-    cursor: default;
+    font-size: 1.1rem;
+    border-radius: 8px;
   }
-  th {
-    color: #a07a18;
-    font-weight: 700;
+  #calendar th {
+    color: #a9741f;
   }
-
-  td {
-    background-color: #f7e9c4;
+  #calendar td {
+    background: #f7e9c4;
     color: #6b552a;
+    cursor: default;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
-
-  td:empty {
+  #calendar td.empty {
     background: transparent;
+    cursor: default;
   }
-
-  .highlight {
+  #calendar td.highlight {
     background-color: #d4af37;
     color: white;
-    font-weight: 700;
     box-shadow: 0 0 10px 2px rgba(212, 175, 55, 0.8);
+    position: relative;
+  }
+  #calendar td.highlight::after {
+    content: '16:00';
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    font-size: 0.7rem;
+    color: #fffacd;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .sparkle {
@@ -190,16 +242,9 @@
     z-index: 20;
   }
   @keyframes sparkle {
-    0% {
-      transform: scale(0);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1.5) translateY(200px);
-      opacity: 0;
-    }
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(1.5) translateY(200px); opacity: 0; }
   }
-
   .firework {
     position: absolute;
     border-radius: 50%;
@@ -209,21 +254,9 @@
     z-index: 20;
   }
   @keyframes firework-explode {
-    0% {
-      transform: scale(0);
-      opacity: 1;
-      box-shadow: 0 0 15px 8px gold, 0 0 25px 12px orange;
-    }
-    50% {
-      transform: scale(1.8);
-      opacity: 1;
-      box-shadow: 0 0 30px 12px gold, 0 0 50px 20px orange;
-    }
-    100% {
-      transform: scale(3);
-      opacity: 0;
-      box-shadow: 0 0 40px 18px gold, 0 0 60px 25px orange;
-    }
+    0% { transform: scale(0); opacity: 1; box-shadow: 0 0 15px 8px gold, 0 0 25px 12px orange; }
+    50% { transform: scale(1.8); opacity: 1; box-shadow: 0 0 30px 12px gold, 0 0 50px 20px orange; }
+    100% { transform: scale(3); opacity: 0; box-shadow: 0 0 40px 18px gold, 0 0 60px 25px orange; }
   }
 </style>
 </head>
@@ -239,237 +272,94 @@
   </div>
 </div>
 
-<!-- Страница 2: Подробности + информация -->
+<!-- Страница 2 -->
 <div class="page" id="page2" style="overflow-y: auto; padding: 40px; background: #fdf3e7; color: #4a3f35; text-align: center; font-family: 'Montserrat', sans-serif; border-radius: 0; box-shadow: none; height: 100vh; width: 100vw; position: fixed; top: 0; left: 0;">
 
-  <h1 style="font-family: 'Great Vibes', cursive; font-size: 3rem; margin-bottom: 15px; color: #a9741f;">💍 Свадьба</h1>
-  
-  <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px;">
-    Дорогие друзья и близкие! Мы рады пригласить вас на самый важный день в нашей жизни — нашу свадьбу.
-    Мы будем счастливы разделить этот волшебный момент с вами!
-  </p>
-  
+  <h1>💍 Свадьба</h1>
+  <p>Дорогие друзья и близкие! Мы рады пригласить вас на самый важный день в нашей жизни — нашу свадьбу.</p>
   <p><strong>Дата:</strong> 24 октября 2025</p>
   <p><strong>Время:</strong> 16:00</p>
-  <p><strong>адрес:</strong> с. Беловодское ресторан "рим"</p>
-  <p><strong>Телефон для связи:</strong> +996 700 67 10 27  +996 504 22 07 67</p>
-  
+  <p><strong>Адрес:</strong> с. Беловодское ресторан "Рим"</p>
 
-  <div style="margin: 30px 0; font-weight: 600; font-size: 1.2rem; color: #a9741f;">
-    Листать вниз
-    <div style="font-size: 2rem; margin-top: 5px;">⬇️</div>
+  <!-- 📸 Фото-блок -->
+  <div class="photo-section">
+    <div class="overlay">
+      <h2>Эрлан ❤️ Умут</h2>
+      <p>Мы будем счастливы разделить этот день с вами!</p>
+    </div>
   </div>
-
-  <div style="font-family: 'Great Vibes', cursive; font-size: 3rem; margin-bottom: 20px; color: #a9741f;">
-    Эрлан → Умут
-  </div>
-
-  <p style="font-size: 1.1rem; line-height: 1.6;">
-    Мы хотим, чтобы этот день был наполнен любовью, радостью и незабываемыми моментами. 
-    Просим вас прибыть вовремя, чтобы вместе начать праздник с душевного тоста и веселья.
-  </p>
-
-  <p style="font-size: 1.1rem; line-height: 1.6;">
-    Мы подготовили для вас уютное место и множество сюрпризов.
-    Будем рады видеть каждого из вас на нашем торжестве!
-  </p>
-
-  <p style="font-size: 1.1rem; line-height: 1.6;">
-    Если возникнут вопросы или нужна дополнительная информация, не стесняйтесь обращаться по телефону, указанному выше.
-  </p>
 
   <!-- Календарь -->
-  <div id="calendar" style="max-width: 400px; margin: 40px auto; font-family: 'Montserrat', sans-serif;"></div>
+  <div id="calendar" style="max-width: 400px; margin: 40px auto;"></div>
 
   <p style="margin-top: 40px; font-style: italic; color: #a9741f;">
-    С любовью,<br>
-    Эрлан и Умут
+    С любовью,<br>Эрлан и Умут
   </p>
-
 </div>
 
-<style>
-  /* Календарь */
-  #calendar {
-    border: 2px solid #d4af37;
-    border-radius: 15px;
-    background: #fff8dc;
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-    padding: 20px;
-  }
-
-  #calendar h2 {
-    margin: 0 0 10px 0;
-    font-family: 'Great Vibes', cursive;
-    color: #a9741f;
-    font-size: 2.5rem;
-  }
-
-  #calendar table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-    user-select: none;
-  }
-
-  #calendar th, #calendar td {
-    width: 14.28%;
-    padding: 10px 0;
-    font-weight: 600;
-    font-size: 1.1rem;
-    border-radius: 8px;
-  }
-
-  #calendar th {
-    color: #a9741f;
-  }
-
-  #calendar td {
-    background: #f7e9c4;
-    color: #6b552a;
-    cursor: default;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  #calendar td.empty {
-    background: transparent;
-    cursor: default;
-  }
-
-  #calendar td.highlight {
-    background-color: #d4af37;
-    color: white;
-    box-shadow: 0 0 10px 2px rgba(212, 175, 55, 0.8);
-    position: relative;
-  }
-
-  #calendar td.highlight::after {
-    content: '17:00';
-    position: absolute;
-    bottom: 4px;
-    right: 4px;
-    font-size: 0.7rem;
-    color: #fffacd;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
-  }
-</style>
-
 <script>
-  // Функция для создания календаря на октябрь 2025
   function createCalendar() {
     const calendar = document.getElementById('calendar');
-
     const monthName = 'Октябрь 2025';
     const daysInMonth = 31;
-    const firstDayWeekday = new Date(2025, 9, 1).getDay(); // Октябрь = 9 (0-based), getDay(): 0 - вс, 1 - пн ...
-    // В js неделя начинается с воскресенья(0), нам удобнее с понедельника - поправим:
-    // Понедельник = 1, воскресенье = 0, сделаем воскресенье = 7 для удобства
+    const firstDayWeekday = new Date(2025, 9, 1).getDay();
     let startDay = firstDayWeekday === 0 ? 7 : firstDayWeekday;
 
-    // Шапка календаря с месяцем
     calendar.innerHTML = `<h2>${monthName}</h2>`;
-
-    // Заголовки дней недели
-    const daysOfWeek = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+    const daysOfWeek = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
     let table = '<table><thead><tr>';
-    for (const day of daysOfWeek) {
-      table += `<th>${day}</th>`;
-    }
+    for (const day of daysOfWeek) table += `<th>${day}</th>`;
     table += '</tr></thead><tbody><tr>';
 
-    // Добавим пустые ячейки до первого дня месяца
-    for (let i = 1; i < startDay; i++) {
-      table += `<td class="empty"></td>`;
+    for (let i=1;i<startDay;i++) table += `<td class="empty"></td>`;
+
+    for (let day=1; day<=daysInMonth; day++) {
+      if ((day+startDay-2)%7===0 && day!==1) table += '</tr><tr>';
+      if(day===24) table += `<td class="highlight">${day}</td>`;
+      else table += `<td>${day}</td>`;
     }
-
-    // Добавим дни месяца
-    for (let day = 1; day <= daysInMonth; day++) {
-      // Если нужно начать новую строку в таблице
-      if ((day + startDay - 2) % 7 === 0 && day !== 1) {
-        table += '</tr><tr>';
-      }
-
-      if(day === 24) {
-        // Выделяем 19 октября
-        table += `<td class="highlight">${day}</td>`;
-      } else {
-        table += `<td>${day}</td>`;
-      }
-    }
-
-    // Добавим пустые ячейки в конце, если нужно
-    const totalCells = daysInMonth + startDay - 1;
-    const trailingEmpty = (7 - (totalCells % 7)) % 7;
-    for(let i = 0; i < trailingEmpty; i++) {
-      table += `<td class="empty"></td>`;
-    }
-
-    table += '</tr></tbody></table>';
-
-    calendar.innerHTML += table;
+    const totalCells = daysInMonth+startDay-1;
+    const trailingEmpty=(7-(totalCells%7))%7;
+    for(let i=0;i<trailingEmpty;i++) table+=`<td class="empty"></td>`;
+    table+='</tr></tbody></table>';
+    calendar.innerHTML+=table;
   }
-
   createCalendar();
-</script>
 
-
-
-
-<script>
   function openEnvelope() {
-    const envelope = document.querySelector('.envelope');
-    if (envelope.classList.contains('open')) return;
-
+    const envelope=document.querySelector('.envelope');
+    if(envelope.classList.contains('open')) return;
     envelope.classList.add('open');
-
-    // Блестки
-    for (let i = 0; i < 80; i++) {
-      let sparkle = document.createElement('div');
-      sparkle.className = 'sparkle';
-
-      const size = Math.random() * 4 + 4;
-      sparkle.style.width = sparkle.style.height = size + 'px';
-
-      const colors = ['gold', '#fff', '#ffd700', '#fffacd'];
-      sparkle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-
-      sparkle.style.top = (Math.random() * 230 + 10) + 'px';
-      sparkle.style.left = (Math.random() * 350 + 10) + 'px';
-
-      sparkle.style.animationDelay = (Math.random() * 2) + 's';
-
+    for (let i=0;i<80;i++) {
+      let sparkle=document.createElement('div');
+      sparkle.className='sparkle';
+      const size=Math.random()*4+4;
+      sparkle.style.width=sparkle.style.height=size+'px';
+      const colors=['gold','#fff','#ffd700','#fffacd'];
+      sparkle.style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];
+      sparkle.style.top=(Math.random()*230+10)+'px';
+      sparkle.style.left=(Math.random()*350+10)+'px';
+      sparkle.style.animationDelay=(Math.random()*2)+'s';
       envelope.appendChild(sparkle);
-
-      setTimeout(() => sparkle.remove(), 2500);
+      setTimeout(()=>sparkle.remove(),2500);
     }
-
-    // Салюты
-    for (let i = 0; i < 6; i++) {
-      let firework = document.createElement('div');
-      firework.className = 'firework';
-
-      const size = Math.random() * 15 + 15;
-      firework.style.width = firework.style.height = size + 'px';
-
-      const fwColors = ['#ffd700', '#ffa500', '#ff4500', '#ffff00'];
-      firework.style.backgroundColor = fwColors[Math.floor(Math.random() * fwColors.length)];
-
-      firework.style.top = (Math.random() * 140 + 10) + 'px';
-      firework.style.left = (Math.random() * 350 + 10) + 'px';
-
-      firework.style.animationDelay = (Math.random() * 1.5) + 's';
-
+    for (let i=0;i<6;i++) {
+      let firework=document.createElement('div');
+      firework.className='firework';
+      const size=Math.random()*15+15;
+      firework.style.width=firework.style.height=size+'px';
+      const fwColors=['#ffd700','#ffa500','#ff4500','#ffff00'];
+      firework.style.backgroundColor=fwColors[Math.floor(Math.random()*fwColors.length)];
+      firework.style.top=(Math.random()*140+10)+'px';
+      firework.style.left=(Math.random()*350+10)+'px';
+      firework.style.animationDelay=(Math.random()*1.5)+'s';
       envelope.appendChild(firework);
-
-      setTimeout(() => firework.remove(), 1300);
+      setTimeout(()=>firework.remove(),1300);
     }
-
-    // Переключение страниц с задержкой
-    setTimeout(() => {
+    setTimeout(()=>{
       document.getElementById('page1').classList.remove('active');
       document.getElementById('page2').classList.add('active');
-    }, 3200);
+    },3200);
   }
 </script>
 
